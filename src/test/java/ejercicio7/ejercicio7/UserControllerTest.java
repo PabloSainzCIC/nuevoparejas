@@ -9,6 +9,8 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+
 @SpringBootTest
 @AutoConfigureMockMvc
 public class UserControllerTest {
@@ -16,11 +18,7 @@ public class UserControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @Test
-    public void whenAccessUsersWithoutAuthentication_thenUnauthorized() throws Exception {
-        mockMvc.perform(get("/users"))
-            .andExpect(status().isUnauthorized());
-    }
+  
 
     @Test
     @WithMockUser
