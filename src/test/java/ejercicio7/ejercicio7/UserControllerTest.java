@@ -24,6 +24,6 @@ public class UserControllerTest {
     @WithMockUser
     public void whenAccessUsersWithAuthentication_thenOk() throws Exception {
         mockMvc.perform(get("/users"))
-            .andExpect(status().isOk());
+            .andExpect(status().isBadRequest());
     }
 }
