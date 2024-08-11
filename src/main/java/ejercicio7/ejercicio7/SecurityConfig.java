@@ -14,24 +14,17 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import java.util.Collection;
 import java.util.stream.Collectors;
-
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
 public class SecurityConfig {
-
-    // @Bean
-    // public WebSecurityCustomizer webSecurityCustomizer() {
-    //     return (web) -> web.ignoring()
-    //         .requestMatchers(new AntPathRequestMatcher("/**"));
-    // }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests(authorizeRequests ->
                 authorizeRequests
-                    .requestMatchers("/public/**").permitAll()
+                    .requestMatchers("/users/**").permitAll()
                     .anyRequest().authenticated()
             )
             .oauth2ResourceServer(oauth2ResourceServer ->
